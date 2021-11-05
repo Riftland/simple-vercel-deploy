@@ -14,4 +14,4 @@ jobs:
       - name: deploy to Vercel
         id: branch_deploy_vercel
         run: |
-          URL=$(npx vercel --prod --confirm -n ${{ secrets.VERCEL_PROJECT_ID }} -t ${{ secrets.SIMPLE_VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_ORG_ID }} -b DEPLOY_ENV=staging -e DEPLOY_ENV=staging)
+          URL=$(npx vercel --prod --confirm -n ${{ secrets.VERCEL_PROJECT_ID }} -t ${{ secrets.SIMPLE_VERCEL_TOKEN }} --scope ${{ secrets.VERCEL_ORG_ID }} -b DEPLOY_ENV=staging -b REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }} -e DEPLOY_ENV=staging -e REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }})
